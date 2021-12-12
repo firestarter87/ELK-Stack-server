@@ -87,8 +87,8 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the **/etc/ansible/file/filebeat-configuration.yml** file to .
-- Make the following cahnges to the */etc/ansible/hosts* file.
+- Copy the **/ansible/file/filebeat-configuration.yml** file to **/etc/ansible/file/**.
+- Make the following changes to the */etc/ansible/hosts* file.
  
 ![add screenshot of modified etc/ansible/hosts file](Images/etc-ansible-hosts.PNG)
 
