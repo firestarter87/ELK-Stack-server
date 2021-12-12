@@ -88,5 +88,8 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the **/etc/ansible/file/filebeat-configuration.yml** file to .
-- Update the /etc/ansible/hosts file file to include Webservers IP addresses.
+- Make the following cahnges to the */etc/ansible/hosts* file.
+ 
+![add screenshot of modified etc/ansible/hosts file](Images/etc-ansible-hosts.png)
+
 - Run the playbook, and navigate to **[ELK-VM IP]:5601\app\kibana\** to check that the installation worked as expected.
