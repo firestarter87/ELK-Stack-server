@@ -90,6 +90,6 @@ SSH into the control node and follow the steps below:
 - Copy the **/etc/ansible/file/filebeat-configuration.yml** file to .
 - Make the following cahnges to the */etc/ansible/hosts* file.
  
-![add screenshot of modified etc/ansible/hosts file](Images/etc-ansible-hosts.png)
+![add screenshot of modified etc/ansible/hosts file](Images/etc-ansible-hosts.PNG)
 
 - Run the playbook, and navigate to **[ELK-VM IP]:5601\app\kibana\** to check that the installation worked as expected.
