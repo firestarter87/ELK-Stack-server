@@ -64,7 +64,7 @@ you are able to send commands to multiple servers at once, through a single play
 The playbook implements the following tasks:
 - Install: docker.io_
 - Install: python-pip
-- Commmand: Sysctl -w vm.max_map_count=262144
+- Commmand: vm.max_map_count
 - Lauch docker contianer: elk
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
