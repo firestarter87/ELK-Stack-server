@@ -2,11 +2,10 @@
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
+![TODO: Update the path with the name of your diagram](Images/Azure_Network.drawio.png)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook file may be used to install only certain pieces of it, such as Filebeat.
 
-  - _TODO: Enter the playbook file._
 
 This document contains the following details:
 - Description of the Topologu
@@ -26,12 +25,11 @@ Load Balancers also sever an inmportant security role when it comes to defending
 
 A Jump allows a system administrator to access all computers on the network, from one secure node.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 - Filebeat collects log across multiple servers, and forwards them to Elestic search, or Logstash
 - Metricbeat collects and centralizes metric data, and forwards it to Elastic Serarch.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name      | Function    | IP Address | Operating System        |
 |-----------|-------------|------------|-------------------------|
@@ -45,7 +43,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Jump-Box machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- 174.52.232.156
+- Public Home IP
 
 Machines within the network can only be accessed by Jump-Box Provisioner: 10.0.0.4
 
@@ -53,14 +51,14 @@ A summary of the access policies in place can be found in the table below.
 
 | Name       | Publicly Accessible | Allowed IP Addresses |
 |------------|---------------------|----------------------|
-| Jump Box   | Yes                 | 174.52.232.156       |
+| Jump Box   | Yes                 | (Home Public IP)     |
 | Web 1      | No                  | 10.0.0.4             |
 | Web 2      | No                  | 10.0.0.4             |
-| ELK Server | No                  | 174.52.232.156       |
+| ELK Server | No                  | (Home Public IP)     |
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because
 you are able to send commands to multiple servers at once, through a single playbook.
 
 The playbook implements the following tasks:
@@ -71,7 +69,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![TODO: Update the path with the name of your screenshot of docker ps output](Images/sudo-docker-ps.PNG)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -83,19 +81,15 @@ We have installed the following Beats on these machines:
 - Metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Filebeat
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the **/etc/ansible/file/filebeat-configuration.yml** file to .
+- Make the following cahnges to the */etc/ansible/hosts* file.
+ 
+![add screenshot of modified etc/ansible/hosts file](Images/etc-ansible-hosts.PNG)
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
-
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+- Run the playbook, and navigate to *[ELK-VM IP]:5601\app\kibana\* to check that the installation worked as expected.
