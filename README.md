@@ -25,7 +25,7 @@ Load Balancers also sever an inmportant security role when it comes to defending
 
 A Jump allows a system administrator to access all computers on the network, from one secure node.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 - Filebeat collects log across multiple servers, and forwards them to Elestic search, or Logstash
 - Metricbeat collects and centralizes metric data, and forwards it to Elastic Serarch.
 
@@ -51,10 +51,10 @@ A summary of the access policies in place can be found in the table below.
 
 | Name       | Publicly Accessible | Allowed IP Addresses |
 |------------|---------------------|----------------------|
-| Jump Box   | Yes                 | 174.52.232.156       |
+| Jump Box   | Yes                 | (Home Public IP)     |
 | Web 1      | No                  | 10.0.0.4             |
 | Web 2      | No                  | 10.0.0.4             |
-| ELK Server | No                  | 174.52.232.156       |
+| ELK Server | No                  | (Home Public IP)     |
 
 ### Elk Configuration
 
@@ -87,6 +87,6 @@ These Beats allow us to collect the following information from each machine:
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the /etc/ansible/file/filebeat-configuration.yml file to _____.
+- Copy the **/etc/ansible/file/filebeat-configuration.yml** file to .
 - Update the /etc/ansible/hosts file file to include Webservers IP addresses.
-- Run the playbook, and navigate to (your IP):5601\app\kibana\ to check that the installation worked as expected.
+- Run the playbook, and navigate to **[ELK-VM IP]:5601\app\kibana\** to check that the installation worked as expected.
