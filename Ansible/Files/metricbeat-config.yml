@@ -93,7 +93,7 @@ setup.kibana:
 output.elasticsearch:
   # TODO: Change the hosts IP address to the IP address of your ELK server
   # TODO: Change password from `changem` to the password you created
-  hosts: ["10.0.0.12:9200"]
+  hosts: ["10.1.0.4:9200"]
   username: "elastic"
   password: "changeme"
 
